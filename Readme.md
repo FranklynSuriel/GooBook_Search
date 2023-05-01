@@ -1,12 +1,12 @@
-# Franklyn Portfolio
+# Google_Book_Search
 
 ![License](https://img.shields.io/badge/license-MIT-green)
 
-A book search engine where you can create a login and save your favorite books
+A book search engine using Google API, where you can create a login and save your favorite books
 
 ## Description
 
-<!-- In this application we use React to create a front end webpage. It was interesting to create the different components and join them in the App.js to render the webpage. We use different packages like react, react-dom, and react-script. We also learn how to use gh-pages to deploy to github. -->
+Google_Book_Search was build whit a RESTful API and we needed to Refactor it to use GraphQL built in Apollo Server. I started adding, modifying and erasing the necessary files on the back and using ApolloGraphQL sandbox for testing the queries and mutations ensuring that, at the end I have a functioning server side. I work on the client side the same approach as the server side. This was an exiting and challenge process where I discovered the differences between the RESTful and GraphQL. 
 
 ## Table of Contents
 
@@ -20,54 +20,48 @@ A book search engine where you can create a login and save your favorite books
 ## Installation
 
 This application runs in the browser and requires the following packages:
+- [apollo-server-express](https://www.npmjs.com/package/apollo-server-express)
+- [bcrypt](https://www.npmjs.com/package/bcrypt)
 - [express](https://www.npmjs.com/package/express)
+- [graphql](https://www.npmjs.com/package/graphql)
+- [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken)
+- [mongoose](https://www.npmjs.com/package/mongoose)
+- [nodemon](https://www.npmjs.com/package/nodemon)
+- [@apollo/client](https://www.npmjs.com/package/@apollo/client)
+- [@testing-library/jest-dom](https://www.npmjs.com/package/@testing-library/jest-dom)
+- [@testing-library/react](https://www.npmjs.com/package/@testing-library/react)
+- [@testing-library/user-event](https://www.npmjs.com/package/@testing-library/user-event)
+- [bootstrap](https://www.npmjs.com/package/bootstrap)
+- [jwt-decode](https://www.npmjs.com/package/jwt-decode)
 - [react](https://www.npmjs.com/package/react)
 - [react-bootstrap](https://www.npmjs.com/package/react-bootstrap)
 - [react-dom](https://www.npmjs.com/package/react-dom)
 - [react-router-dom](https://www.npmjs.com/package/react-router-dom)
 - [react-scripts](https://www.npmjs.com/package/react-scripts)
-- [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken)
-- [mongoose](https://www.npmjs.com/package/mongoose)
-- [nodemon](https://www.npmjs.com/package/nodemon)
-- [bcrypt](https://www.npmjs.com/package/bcrypt)
-- [jwt-decode](https://www.npmjs.com/package/jwt-decode)
-- [bootstrap](https://www.npmjs.com/package/bootstrap)
-- [@testing-library/user-event](https://www.npmjs.com/package/@testing-library/user-event)
-- [@testing-library/react](https://www.npmjs.com/package/@testing-library/react)
-- [@testing-library/jest-dom](https://www.npmjs.com/package/@testing-library/jest-dom)
+- [web-vitals](https://www.npmjs.com/package/web-vitals)
+- [concurrently](https://www.npmjs.com/package/concurrently)
 
 
 ## Links
 
-<!-- Github repository site here: [https://github.com/FranklynSuriel/franklyn_portfolio](https://github.com/FranklynSuriel/franklyn_portfolio)
+Github repository site here: [https://github.com/FranklynSuriel/Google_Book_Search](https://github.com/FranklynSuriel/Google_Book_Search)
 
-Deployed site here: [https://franklynsuriel.github.io/franklyn_portfolio/](https://franklynsuriel.github.io/franklyn_portfolio/) -->
+<!-- Deployed site here: [https://franklynsuriel.github.io/franklyn_portfolio/](https://franklynsuriel.github.io/franklyn_portfolio/) -->
 
 ## Usage
 
-<!-- Open it in the browser. You can find a navigation bar with link to each section on the portfolio. If you click **About Me** you will directed to the about me section. If you click **Portfolio** you will be directed to the portfolio section. if you click **Contact Me** you will be directed to the contact me section. If you click on **Resume** you will be linked to a resume. When you are on the Portfolio section, you can click on the links on each project to visit the deployed site or the github repo site. When you explore the contact me section, you can click on the icons to visit linkedin profile or github profile. -->
+Open it in the browser. The landing page you can **search for books**. You can sign up or login. If you click **login/signup** a modal will appear with the options of login or signup. You can click the toogle button to change the option. After you login, the options **Search for books, See your books or logout** will show on the navbar. When you do a search alter login, each book will show a button to save this book to your collection. If you click **Save this book!** button, you book will be added to you collection. If the book is already saved, the button will indicate that the book is already saved. If you click on **See your books**, you will be presented with all the saved books and each book will have a button with the option to delete your book. If you click **logout** you will logout from the application.
 
-![Portfolio_React](./src/components/pictures/Portfolio_React.png)
+![Google_Book_Search](./client/public/Google_Search_Book.png)
 
 ## Credits
 
 Documentation(s) and webpage(s):
 
-<!-- - W3 Schools
-- react
-- gh-pages
+- apolloDocs
 - Stack Overflow
-- devicon.dev
-- coolors.co
-- Bootstrap
-- create-react-app.dev
-- CodeSandbox -->
+- BootCamp Repo
 
-Inspiration:
-
-<!-- [https://www.braiscao.dev/](https://www.braiscao.dev/) -->
-
-<!-- [https://www.youtube.com/watch?v=9LHr3ER0qtY](https://www.youtube.com/watch?v=9LHr3ER0qtY) -->
 
 ## License
 
@@ -86,4 +80,7 @@ No test available.
 [github.com/FranklynSuriel](https://github.com/FranklynSuriel)
 
 Questions about this project or to report an issue can be sent to:
-fsuriel@gmail.com. Please specify the name of the project in the subject of the email.
+
+- fsuriel@gmail.com. 
+
+Please specify the name of the project in the subject of the email.
