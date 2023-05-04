@@ -4,14 +4,6 @@ const { signToken } = require('../utils/auth');
 
 const resolvers = {
     Query: {
-        // me: async (parent, { user }) => {
-        //     if (!user) {
-        //         throw new AuthenticationError('Not logged in');
-        //     }
-
-        //     const foundUser = User.findOne({ _id: user.id }).populate('savedBook');
-        //     return foundUser;
-        // },
         me: async (parent, args, context) => {
             if (context.user) {
                 const foundUser = User.findOne({ _id: context.user._id }).select('__v -password');
@@ -41,7 +33,7 @@ const resolvers = {
             const token = signToken(user);
             return { token, user };
         },
-        saveBook: async (parent, { bookData }, context) => {
+        savedBook: async (parent, { bookData }, context) => {
 
             const  { authors, description, bookId, image, link, title } = bookData;
             if (context.user) {
