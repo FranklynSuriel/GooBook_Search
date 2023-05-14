@@ -46,7 +46,7 @@ This application runs in the browser and requires the following packages:
 
 Github repository site here: [https://github.com/FranklynSuriel/Google_Book_Search](https://github.com/FranklynSuriel/Google_Book_Search)
 
-<!-- Deployed site here: [https://franklynsuriel.github.io/franklyn_portfolio/](https://franklynsuriel.github.io/franklyn_portfolio/) -->
+Deployed site here: [https://protected-lake-70730.herokuapp.com/](https://protected-lake-70730.herokuapp.com/)
 
 ## Usage
 
