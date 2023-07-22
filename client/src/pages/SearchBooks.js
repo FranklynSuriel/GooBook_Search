@@ -7,11 +7,12 @@ import {
   Card,
   Row
 } from 'react-bootstrap';
-import Auth from '../utils/auth';
-import { saveBookIds, getSavedBookIds } from '../utils/localStorage';
-import { searchGoogleBooks } from '../utils/API';
+
 import { useMutation } from '@apollo/client'
-import { SAVED_BOOK } from '../utils/mutations'
+import { SAVE_BOOK } from '../utils/mutations'
+import { saveBookIds, getSavedBookIds } from '../utils/localStorage';
+
+import Auth from '../utils/auth';
 
 const SearchBooks = () => {
   // create state for holding returned google api data
@@ -22,7 +23,7 @@ const SearchBooks = () => {
   // create state to hold saved bookId values
   const [savedBookIds, setSavedBookIds] = useState(getSavedBookIds());
 
-  
+  const [saveBook] = useMutation(SAVE_BOOK)
 
   // set up useEffect hook to save `savedBookIds` list to localStorage on component unmount
   // learn more here: https://reactjs.org/docs/hooks-effect.html#effects-with-cleanup
@@ -39,7 +40,9 @@ const SearchBooks = () => {
     }
 
     try {
-      const response = await searchGoogleBooks(searchInput);
+      const response = await fetch(
+        `https://www.googleapis.com/books/v1/volumes?q=${searchInput}`
+      )
 
       if (!response.ok) {
         throw new Error('something went wrong!');
@@ -62,34 +65,27 @@ const SearchBooks = () => {
     }
   };
 
-  const [savedBook, { data }] = useMutation(SAVED_BOOK);
   // create function to handle saving a book to our database
   const handleSaveBook = async (bookId) => {
     // find the book in `searchedBooks` state by the matching id
     const bookToSave = searchedBooks.find((book) => book.bookId === bookId);
-
+    console.log('inside handleSaveBook')
     // get token
     const token = Auth.loggedIn() ? Auth.getToken() : null;
-
+    
     if (!token) {
       return false;
     }
-
+    
     try {
-
-      
-      const { data } = await savedBook({
+      console.log(token)
+      const { data } = await saveBook({
         variables: { bookData: { ...bookToSave } },
       });
-
-      if (!data) {
-        throw new Error('Something went wrong!');
-      }
-      
+      console.log(savedBookIds);
       setSavedBookIds([...savedBookIds, bookToSave.bookId]);
     } catch (err) {
-      console.log(bookToSave)
-      console.error(err);
+      console.log(err);
     }
   };
 
@@ -130,7 +126,7 @@ const SearchBooks = () => {
           {searchedBooks.map((book) => {
             return (
               <Col md="4">
-                <Card key={book.bookId} border='dark'>
+                <Card key={book.bookId} border='dark' className='mb-3'>
                   {book.image ? (
                     <Card.Img src={book.image} alt={`The cover for ${book.title}`} variant='top' />
                   ) : null}
